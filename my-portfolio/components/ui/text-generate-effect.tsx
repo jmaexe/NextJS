@@ -34,7 +34,7 @@ export const TextGenerateEffect = ({
   const renderWords = () => {
     return (
       <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
+        {/* {wordsArray.map((word, idx) => {
           return (
             <motion.span
               key={word + idx}
@@ -48,6 +48,21 @@ export const TextGenerateEffect = ({
               {word}{" "}
             </motion.span>
           );
+        })} */}
+        {wordsArray.map((word, idx) => {
+          return word.split("").map((char, i) => (
+            <motion.span
+              key={char + idx}
+              className={
+                "relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4 opacity-0"
+              }
+              style={{
+                filter: filter ? "blur(10px)" : "none",
+              }}
+            >
+              {char}
+            </motion.span>
+          ));
         })}
       </motion.div>
     );

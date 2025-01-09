@@ -1,23 +1,16 @@
 "use client";
 import { Card, Carousel } from "@/components/ui/cards-carousel";
-import css_logo from "@/public/css_logo.png";
-import html_logo from "@/public/html_logo.png";
-import js_logo from "@/public/js_logo.png";
+import c_logo from "@/public/c_logo.png";
+import cpp_logo from "@/public/cpp_logo.png";
+import java_logo from "@/public/java_logo.png";
 import Image from "next/image";
 import React from "react";
 export function CardsCarouselDemo() {
-  const cards = data.map((card, index) => (
-    <Card key={index} card={card} index={index} />
+  const cards = subjects.map((subject, index) => (
+    <Card key={index} card={subject} index={index} />
   ));
 
-  return (
-    <div className="w-full h-full">
-      {/* <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-black-300 dark:text-white font-sans">
-        Get to know your iSad.
-      </h2> */}
-      <Carousel items={cards} />
-    </div>
-  );
+  return <Carousel items={cards} />;
 }
 
 const DummyContent = () => {
@@ -52,23 +45,23 @@ const DummyContent = () => {
   );
 };
 
-const data = [
+const subjects = [
   {
     category: "",
-    title: "HTML",
-    src: html_logo,
+    title: "C",
+    src: c_logo,
     content: <DummyContent />,
   },
   {
     category: "",
-    title: "CSS",
-    src: css_logo,
+    title: "C++",
+    src: cpp_logo,
     content: <DummyContent />,
   },
   {
     category: "",
-    title: "JS",
-    src: js_logo,
+    title: "Java",
+    src: java_logo,
     content: <DummyContent />,
   },
 ];
