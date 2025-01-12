@@ -49,7 +49,7 @@ export const Timeline = ({
         <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
           {title}
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
+        <p className="text-black dark:text-white text-sm md:text-base max-w-sm">
           {description}
         </p>
       </div>

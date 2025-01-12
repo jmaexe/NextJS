@@ -48,19 +48,19 @@ const DummyContent = () => {
 const subjects = [
   {
     category: "",
-    title: "C",
+    title: "",
     src: c_logo,
     content: <DummyContent />,
   },
   {
     category: "",
-    title: "C++",
+    title: "",
     src: cpp_logo,
     content: <DummyContent />,
   },
   {
     category: "",
-    title: "Java",
+    title: "",
     src: java_logo,
     content: <DummyContent />,
   },

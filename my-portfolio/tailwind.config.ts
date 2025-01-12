@@ -91,12 +91,14 @@ export default {
       },
       blue: {
         500: "#3b82f6",
+        900: "#1e3a8a",
       },
       violet: {
         500: "#8b5cf6",
       },
       pink: {
         500: "#ec4899",
+        800: "#9d174d",
       },
       indigo: {
         500: "#6366f1",
