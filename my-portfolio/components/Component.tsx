@@ -1,18 +1,30 @@
 "use client";
-import { motion } from "motion/react";
+import {
+  animate,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+} from "motion/react";
 
 const Component = () => {
+  const color = useMotionValue("transparent");
+  const background = useMotionTemplate`linear-gradient(to bottom,black,${color})`;
+
   return (
     <motion.div
-      className="w-96 h-96"
-      layout
-      initial={{
-        background: "linear-gradient(to bottom, black,transparent)",
-        scale: 0.2,
+      style={{
+        width: 500,
+        height: 500,
+        background,
       }}
-      whileHover={{
-        scale: 1,
-        transition: { duration: 300 },
+      // onMouseEnter={() => {
+      //   animate(color, "black", { duration: 1 });
+      // }}
+      // onMouseLeave={() => {
+      //   animate(color, "transparent", { duration: 1 });
+      // }}
+      onClick={() => {
+        animate(color, "black", { duration: 2000 });
       }}
     />
   );

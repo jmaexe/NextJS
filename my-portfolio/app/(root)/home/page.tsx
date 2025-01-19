@@ -1,7 +1,8 @@
-import Component from "@/components/Component";
 import { FocusCardsDemo } from "@/components/FocusCardsDemo";
 import { AnimatedCards } from "@/components/ui/animated-cards";
+import { LayoutGrid } from "@/components/ui/layout-grid";
 import { Timeline } from "@/components/ui/timeline";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import {
   css_logo,
   database_animali,
@@ -14,7 +15,7 @@ import Image from "next/image";
 import React from "react";
 const Page = () => {
   return (
-    <>
+    <div className="w-full h-full bg-black-300">
       <Timeline
         title="La mia carriera scolastica"
         description="Gli argomenti principali di informatica affrontati: "
@@ -50,51 +51,66 @@ const Page = () => {
           {
             title: "Basi della programmazione",
             content: (
-              <div className="p-10">
-                <Component />
+              <div className="py-10 px-5">
+                <FocusCardsDemo />
               </div>
             ),
           },
           {
             title: "2023-2024",
-            content: <FocusCardsDemo />,
-          },
-          {
-            title: "2024",
             content: (
-              <div>
-                <p className="text-black dark:text-white text-xs md:text-sm font-normal mb-8">
-                  Le basi di PHP & MySQL
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <Image
-                    src={lista}
-                    alt="startup template"
-                    width={500}
-                    height={500}
-                    className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                  />{" "}
-                  <Image
-                    src={database_animali}
-                    alt="startup template"
-                    width={500}
-                    height={500}
-                    className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                  />
-                  <Image
-                    src={registra}
-                    alt="startup template"
-                    width={500}
-                    height={500}
-                    className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                  />
-                </div>
+              <div className="h-[500px]  w-full">
+                <LayoutGrid
+                  cards={[
+                    {
+                      id: 1,
+                      content: (
+                        <div>
+                          <p className="font-bold md:text-4xl text-xl text-black">
+                            Basi di PHP
+                          </p>
+                          <p className="font-normal text-base text-white"></p>
+                          <p className="font-normal text-base my-4 max-w-lg text-neutral-200"></p>
+                        </div>
+                      ),
+                      thumbnail: lista,
+                      className: "",
+                    },
+
+                    {
+                      id: 3,
+                      content: (
+                        <div>
+                          <p className="font-bold md:text-4xl text-xl text-black">
+                            Basi di MySQL con MariaDB
+                          </p>
+                          <p className="font-normal text-base text-white"></p>
+                          <p className="font-normal text-base my-4 max-w-lg text-neutral-200"></p>
+                        </div>
+                      ),
+                      thumbnail: database_animali,
+                      className: "",
+                    },
+                  ]}
+                />
               </div>
             ),
           },
         ]}
       />
-    </>
+      <div className="flex justify-center mt-20">
+        <TypewriterEffectSmooth
+          words={[
+            { text: "La" },
+            { text: "mia" },
+            { text: "esperienza" },
+            { text: "presso" },
+            { text: "Omnia" },
+            { text: "Group" },
+          ]}
+        />
+      </div>
+    </div>
   );
 };
 
