@@ -1,5 +1,5 @@
 export type Movie = {
-  id: string;
+  id: number;
   title: string;
   popularity: number;
   release_date: string;
@@ -21,7 +21,7 @@ export const getPopularMovies = async (): Promise<Movie[]> => {
       Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
     },
   });
-  console.log(JSON.stringify(res));
+
   const data = await res.json();
   return data.results;
 };

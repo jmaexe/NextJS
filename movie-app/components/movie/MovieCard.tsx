@@ -9,26 +9,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-const dataCard = ({ data }: { data: Movie }) => {
+import Link from "next/link";
+import BackgroundImage from "../image/BackgroundImage";
+const MovieCard = ({ data }: { data: Movie }) => {
   return (
-    <Card key={data.id}>
-      <CardHeader
-        style={{
-          backgroundImage: `url(${
-            process.env.IMAGE_URL + "original/" + data.backdrop_path
-          })`,
-        }}
-      >
+    <Card key={data.id} className="relative overflow-hidden">
+      <BackgroundImage id={data.id} path={data.backdrop_path} size="original" />
+      <CardHeader>
         <CardTitle>{data.title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription>{data.title}</CardDescription>
+        <CardDescription>Popularity: {data.popularity}</CardDescription>
       </CardContent>
       <CardFooter>
-        <CardDescription>{data.release_date}</CardDescription>
+        <CardDescription>Release date: {data.release_date}</CardDescription>
       </CardFooter>
     </Card>
   );
 };
 
-export default dataCard;
+export default MovieCard;
