@@ -4,6 +4,7 @@ export type Movie = {
   popularity: number;
   release_date: string;
   backdrop_path: string;
+  genre_ids: number[];
 };
 
 export type MovieDetails = Movie & {
@@ -15,13 +16,26 @@ export type MovieDetails = Movie & {
   vote_average: number;
   vote_count: number;
 };
-export const getPopularMovies = async (): Promise<Movie[]> => {
+export const getPopularMovies = async ({
+  genre: id_genre,
+}: {
+  genre: number | null;
+}): Promise<Movie[]> => {
   const res = await fetch(`${process.env.BASE_URL}movie/popular`, {
     headers: {
       Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
     },
   });
 
-  const data = await res.json();
-  return data.results;
+  const data = (await res.json()).results as Movie[];
+
+  if (id_genre) {
+    const dataFiltered = data.filter((movie) =>
+      movie.genre_ids.includes(id_genre)
+    );
+    console.log(dataFiltered);
+
+    return dataFiltered;
+  }
+  return data;
 };

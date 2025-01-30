@@ -6,6 +6,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useTheme } from "next-themes";
+import ButtonTheme from "../ButtonTheme";
 type GenreSelectProps = {};
 
 const GenreSelect = async ({}: GenreSelectProps) => {
@@ -15,9 +17,9 @@ const GenreSelect = async ({}: GenreSelectProps) => {
       <SelectTrigger className="w-full">
         <SelectValue placeholder="Genre" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="">
         {genres.map((genre, i) => (
-          <SelectItem key={i} value={genre.name}>
+          <SelectItem key={i} value={genre.id.toString()}>
             {genre.name}
           </SelectItem>
         ))}
